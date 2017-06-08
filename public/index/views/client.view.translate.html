@@ -1,0 +1,26 @@
+	<section id="containerPpal">
+	<img style="width: 100%;margin-top: 35px;" src="../images/indexfranja0.png">
+        <div class="container">
+			<div class="row contact-wrap">
+				<a class="pull-right btn btn-default" href="#!/settings"><span class="fa fa-cogs"></span></a>
+				<div class="center">
+					<h2 class="lead">Diccionario de Modismos </h2>
+				</div>
+				<div class="col-lg-5 col-sm-5 col-xs-12">
+					<label class="lead">Ingrese el modismo</label>
+			        <input type="text" class="form-control" ng-model="modismo" placeholder="Ingrese un Modismo">
+				</div>
+				<div class="col-lg-2 col-sm-2 col-xs-12 center">
+					<button class="form-control btn btn-primary center" ng-click="translate()" style="width: 100px;height: 100px;border-radius: 50%;"><i class="fa fa-search center"style="height: 20px"></i></br>Traducir</button>
+				</div>
+				<div class="col-lg-5 col-sm-5 col-xs-12">
+					<div class="form-group" id="div_significado">
+						<label class="lead">Traducción</label>
+						<img id="img_significado" style="height: 100px;margin: 10px" class="center" src='' hidden>
+			            <textarea ng-model="significado.traduccion" class="form-control" rows="6"></textarea>
+			        </div>
+			    </div>
+            </div><!--/.row-->
+			</br></br></br></br>
+		</div><!--/.container-->
+    </section><!--/#contact-page-->

@@ -1,0 +1,135 @@
+
+	<section  id="containerPpal">
+		<div class="container" style="padding: 10px 0px 80px 0px" >
+			<!-- El elemento mensaje error -->
+			<div data-ng-show="error" class="alert alert-danger fade in alert-dismissable text-center">
+			    <strong data-ng-bind="error"></strong>
+			</div>
+			<h1 class="center">Administración de la Base de Datos</h1>
+			</br></br>
+			<div class="row contact-wrap" style="border: 1px solid #ccc">
+				<div class="col-lg-4 col-sm-4 col-xs-12">
+					<h2>Agregar País</h2>
+					<form ng-submit="addPais()">
+						<div class="form-group">
+			                <label>País</label>
+			                <input type="text" class="form-control" placeholder="Agregar País" data-ng-model="nombrePais" required>
+			            </div>
+					    <div class="form-group center">
+			                <button type="submit" class="btn btn-primary" ><span class="fa fa-plus"></span> Agregar País</button>
+			            </div>
+					</form>
+				</div>
+				<div class="col-lg-8 col-sm-8 col-xs-12">
+					<h2>Paises</h2>
+				    <table class="table table-striped" style='border: 1px solid #DDD; margin-top: 36px;' >
+				        <thead>
+				            <tr><th>Paises</th></tr>
+				        </thead>
+				        <tbody>
+				            <tr ng-repeat="p in paises"><td>{{p.nombre}}</td>
+				            <tr><td colspan="1" class="center"> {{paises.length}} Paises</td></tr>
+				        <tbody>
+				    </table>
+				</div>
+			</div>
+			<div class="row contact-wrap" style="border: 1px solid #ccc">
+				<div class="col-lg-3 col-sm-4 col-xs-12">
+					<h2>Agregar Idioma</h2>
+					<form ng-submit="addIdioma()">
+						<div class="form-group">
+			                <label>Idioma</label>
+			                <input type="text" class="form-control" placeholder="Agregar Idioma idioma" data-ng-model="nombreIdioma" required>
+			            </div>
+					    <div class="form-group center">
+			                <button type="submit" class="btn btn-primary" ><span class="fa fa-plus"></span> Agregar </button>
+			            </div>
+					</form>
+				</div>
+				<div class="col-lg-9 col-sm-8 col-xs-12">
+					<h2>Idiomas</h2>
+				    <table class="table table-striped" style='border: 1px solid #DDD; margin-top: 36px;' >
+				        <thead>
+				            <tr><th>Idioma</th></tr>
+				        </thead>
+				        <tbody>
+				            <tr ng-repeat="p in idiomas"><td>{{p.nombre}}</td>
+				            <tr><td colspan="1" class="center"> {{idiomas.length}} Idiomas</td></tr>
+				        <tbody>
+				    </table>
+				</div>
+			</div>
+			<div class="row contact-wrap" style="border: 1px solid #ccc">
+				<div class="col-lg-3 col-sm-4 col-xs-12">
+					<h2>Agregar Modismo</h2>
+					<form ng-submit="addModismo()">
+						<div class="form-group" >
+							<label>País</label>
+							<select class="form-control" data-ng-model="pais" ng-options="p as p.nombre for p in paises" required>
+								<option value="" selected>Seleccione...</option>
+							</select>
+						</div>
+						<div class="form-group">
+			                <label>Modismo</label>
+					        <input type="text" class="form-control" data-ng-model="modismoModismo" placeholder="Ingrese un Modismo" required>
+		        		</div>
+						<div class="form-group">
+					        <button type="submit" class="btn btn-primary" ><span class="fa fa-plus"></span> Agregar Modismo </button>
+	    	        	</div>
+					</form>
+				</div>
+				<div class="col-lg-9 col-sm-8 col-xs-12">
+					<h2>Modismos</h2>
+				    <table class="table table-striped" style='border: 1px solid #DDD; margin-top: 36px;' >
+				        <thead>
+				            <tr><th>modismo</th> <th>País</th></tr>
+				        </thead>
+				        <tbody>
+				            <tr ng-repeat="p in modismos"><td>{{p.modismo}}</td><td>{{p.pais.nombre}}</td>
+				            <tr><td colspan="2" class="center"> {{modismos.length}} Modismos</td></tr>
+				        <tbody>
+				    </table>
+				</div>
+			</div>
+			<div class="row contact-wrap" style="border: 1px solid #ccc">
+				<div class="col-lg-3 col-sm-4 col-xs-12">
+					<h2>Agregar Traducción</h2>
+					<form ng-submit="addDiccionario()">
+						<div class="form-group" >
+							<label>Modismo</label>
+							<select class="form-control" data-ng-model="modismo" ng-options="p as p.modismo for p in modismos" required>
+								<option value="" selected>Seleccione...</option>
+							</select>
+						</div>
+						<div class="form-group" >
+							<label>Idioma</label>
+							<select class="form-control" data-ng-model="idioma" ng-options="p as p.nombre for p in idiomas" required>
+								<option value="" selected>Seleccione...</option>
+							</select>
+						</div>
+						<div class="form-group">
+			                <label>Traducción</label>
+					        <input type="text" class="form-control" ng-model="traduccion" placeholder="Ingrese la traduccion" required>
+		        		</div>
+						<div class="form-group">
+						    <button type="submit" class="btn btn-primary"><span class="fa fa-plus"></span> Agregar Traducción </button>
+						</div>
+					</form>
+				</div>
+				<div class="col-lg-9 col-sm-8 col-xs-12">
+					<h2>Traducciones</h2>
+				    <table class="table table-striped" style='border: 1px solid #DDD; margin-top: 36px;' >
+				        <thead>
+				            <tr><th>modismo</th> <th>Idioma</th> <th>Traducción</th></tr>
+				        </thead>
+				        <tbody>
+				            <tr ng-repeat="p in diccionarios"><td>{{p.modismo.modismo}}</td><td>{{p.idioma.nombre}}</td><td>{{p.traduccion}}</td>
+				            <tr><td colspan="3" class="center"> {{diccionarios.length}} Traducciones</td></tr>
+				        <tbody>
+				    </table>
+				</div>
+			</div>
+
+
+		</div><!--/.container-->
+    </section><!--/#contact-page-->

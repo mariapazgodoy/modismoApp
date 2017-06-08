@@ -1,0 +1,60 @@
+
+	<section  id="containerPpal">
+	<img style="width: 100%;margin-top: 35px;" src="images/franja1.png">
+		<div class="container" style="padding: 10px 0px 80px 0px" >
+			<div class="row contact-wrap">
+				<!-- El elemento mensaje error -->
+				<div data-ng-show="error" class="alert alert-danger fade in alert-dismissable text-center">
+				    <strong data-ng-bind="error"></strong>
+				</div>
+				<div class="col-lg-4 col-lg-offset-4 col-xs-12">
+					<!--form ng-submit="addIdioma()">
+						<div class="form-group">
+			                <label>Idioma</label>
+			                <input type="text" class="form-control" placeholder="Agregar Idioma idioma" data-ng-model="nombre">
+			            </div>
+					    <div class="form-group center">
+			                <button type="submit" class="btn btn-primary" ><span class="fa fa-plus"></span> Agregar </button>
+			            </div>
+					</form-->
+					<label class="lead">Poblar Base de Datos</label>
+					<div class="form-group">
+				        <input type="text" class="form-control" ng-model="modismo" placeholder="Ingrese un Modismo">
+	        		</div>
+					<div class="form-group">
+				        <button type="submit" class="btn btn-primary" ng-click="addModismo()"><span class="fa fa-plus"></span> Agregar Modismo </button>
+    	        	</div>
+					<div class="form-group">
+				        <input type="text" class="form-control" ng-model="traduccion" placeholder="Ingrese un Modismo">
+	        		</div>
+					<div class="form-group">
+					    <button type="submit" class="btn btn-primary" ng-click="addDiccionario()"><span class="fa fa-plus"></span> Agregar Traducción </button>
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3">
+					<div class="center">
+						<h2 class="lead">Configuración</h2>
+					</div>
+					<form ng-submit="setup()">
+						<div class="form-group">
+							<label class="lead">Yo vengo de:</label>
+							<select class="form-control" ng-model="idioma" ng-options="i as i.nombre for i in idiomas">
+							      <option value="">Seleccione...</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="lead">Modismos de:</label>
+							<select class="form-control" ng-model="pais" ng-options="p as p.nombre for p in paises">
+							      <option value="">Seleccione...</option>
+							</select>
+						</div>
+						<div class="form-group center">
+	                        <button type="submit" name="submit" class="btn btn-primary" required="required"><span class="fa fa-save"></span> Guardar Cambios </button>
+	                        <a class="btn btn-default" style="margin-top: 7px;"><span class="fa fa-times"></span> Cancelar </a>
+						</div>
+					</form>
+				</div><!--/.row-->
+			</div>
+		</div><!--/.container-->
+	<img style="width: 100%;margin-top: 35px;" src="images/franja2.png">
+    </section><!--/#contact-page-->

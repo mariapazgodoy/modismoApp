@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<title> <%= title %> </title>
+	    <meta name="description" content="">
+	    <meta name="viewport" content="width=device-width">
+	    <!-- bower:css -->
+	    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/lib/angular-bootstrap/ui-bootstrap-csp.css" />
+   	    <!-- endbower -->
+	    <!-- build:css(.tmp) styles/main.css -->
+	    <link rel="stylesheet" href="/styles/main.css">
+	    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+	    <!-- endbuild -->
+	</head>
+	<body>
+	    <header id="header" style="background: #900b0b;border-bottom: 10px solid #6f0909;">
+	            <div class="container">
+					<div class="navbar-left">
+						<h1 style="font-weight: 100;color: #fff;">ModismoApp</h1>
+					</div>
+				</div><!--/.container-->
+	    </header><!--/header-->
+
+		<ng-view> </ng-view>
+
+	    <!-- modulos angular -->
+	    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+	    <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+	    <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
+	    <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+	    <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+	    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+	    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+	    <script type="text/javascript" src="/application.js"></script>
+	    <!-- modulo users -->
+	    <script type="text/javascript" src="/users/client.module.users.js"></script>
+		<script type="text/javascript" src="/users/services/client.service.authentication.js"></script>
+	    <!-- modulo example -->
+	    <script type="text/javascript" src="/index/client.module.index.js"></script>
+	    <script type="text/javascript" src="/index/config/client.route.index.js"></script>
+	    <script type="text/javascript" src="/index/controllers/client.controller.index.js"></script>
+		<script type="text/javascript" src="/index/services/client.service.index.js"></script>
+		<script type="text/javascript" src="/index/services/client.service.modismo.js"></script>
+		<script type="text/javascript" src="/index/services/client.service.diccionario.js"></script>
+		<script type="text/javascript" src="/index/services/client.service.idioma.js"></script>
+		<script type="text/javascript" src="/index/services/client.service.pais.js"></script>
+
+	</body>
+</html>
