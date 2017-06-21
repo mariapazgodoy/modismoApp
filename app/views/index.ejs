@@ -16,14 +16,19 @@
 	</head>
 	<body>
 	    <header id="header" style="background: #900b0b;border-bottom: 10px solid #6f0909;">
-	            <div class="container">
-					<div class="navbar-left">
-						<h1 style="font-weight: 100;color: #fff;">ModismoApp</h1>
-					</div>
-				</div><!--/.container-->
+            <div class="container">
+				<div class="navbar-left">
+					<h1 style="font-weight: 100;color: #fff;">ModismoApp</h1>
+				</div>
+			</div><!--/.container-->
 	    </header><!--/header-->
 
-		<ng-view> </ng-view>
+		<ng-view>			
+		</ng-view>
+
+		<script type="text/javascript">
+		    window.user = <%- user || 'null' %>;
+	    </script>
 
 	    <!-- modulos angular -->
 	    <script type="text/javascript" src="/lib/angular/angular.js"></script>
@@ -37,8 +42,10 @@
 	    <script type="text/javascript" src="/application.js"></script>
 	    <!-- modulo users -->
 	    <script type="text/javascript" src="/users/client.module.users.js"></script>
+	    <script type="text/javascript" src="/users/controllers/client.controller.users.js"></script>
+		<script type="text/javascript" src="/users/services/client.service.users.js"></script>
 		<script type="text/javascript" src="/users/services/client.service.authentication.js"></script>
-	    <!-- modulo example -->
+	    <!-- modulo index -->
 	    <script type="text/javascript" src="/index/client.module.index.js"></script>
 	    <script type="text/javascript" src="/index/config/client.route.index.js"></script>
 	    <script type="text/javascript" src="/index/controllers/client.controller.index.js"></script>
@@ -47,6 +54,5 @@
 		<script type="text/javascript" src="/index/services/client.service.diccionario.js"></script>
 		<script type="text/javascript" src="/index/services/client.service.idioma.js"></script>
 		<script type="text/javascript" src="/index/services/client.service.pais.js"></script>
-
 	</body>
 </html>

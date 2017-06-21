@@ -104,10 +104,15 @@ exports.modismoByNombre = function(req, res, next, _modismo){
 	Modismo.findOne({
 		modismo: _modismo
 	}, function(err, modismo){
-		if (err) return next(err);
-		if (!modismo) return next(new Error('Fallo al cargar el modismo ' + modismo));
-		// Si un modismo es encontrado usar el objeto 'request' para pasarlo al siguietne middleware
-		req.modismo = modismo;
+		if (err){
+			return next(err);
+		}
+		if (!modismo) {
+			req.modismoNombre = _modismo;
+		}else{
+			// Si un modismo es encontrado usar el objeto 'request' para pasarlo al siguietne middleware
+			req.modismo = modismo;
+		}
 		// Llamar al siguiente middleware
 		next();
 	});

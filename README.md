@@ -15,3 +15,13 @@ Luego, para ejecutar la app se deben cumplir los siguientes pasos:
 
 ## Poblar Base de datos
 Para poblar la base de datos con los modismos, traducciones, paises e idiomas hay una interfaz para su creación (Sólo creación) en localhost:3000/#!/admin
+
+
+<!-- El elemento mensaje error -->
+<div class="row contact-wrap"  data-ng-show="error"> 
+   <div uib-alert ng-class="'alert-danger'" class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-sm-10 col-sm-offset-1" close="closeAlert()">{{error}}</div>
+</div>
+        // Funcion para cerrar los mensajes de error
+        $scope.closeAlert = function(){
+            $scope.error = null;
+        }        

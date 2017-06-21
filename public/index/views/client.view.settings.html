@@ -1,8 +1,24 @@
-
-	<section  id="containerPpal">
+	<section id="containerPpal">
+	<img style="width: 100%;margin-top: 15px;border: 1px solid #ccc;" src="../images/publicidad.png">
 	<img style="width: 100%;margin-top: 35px;" src="images/franja1.png">
-		<div class="container" style="padding: 10px 0px 80px 0px" >
-			<div class="row contact-wrap">
+		<div class="container">
+			<!-- panel de usuario -->
+			<div class="row">
+				<div ng-controller="UserController" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px">
+					<div class="pull-right single-profile-top" style="margin: 0;" ng-hide="user.nombre">
+							<a class="btn btn-default pull-right" href="/signin"><i class="fa fa-lock"></i> Identificarse</a>
+							<a class="btn btn-default pull-right" href="/signup"><i class="fa fa-user-plus"></i> Crear Cuenta</a>
+					</div>
+					<!--Saludo al usuario autentificado-->
+					<div class="pull-right single-profile-top" style="margin: 0;" ng-show="user.nombre">
+						<p style="margin: 0px"><i class="fa fa-user-circle"></i> {{user.nombre}} {{user.apellido}}
+						<a class="btn btn-default pull-right" href="/signout" alt="cerrar sesion" style="margin-left: 30px;padding: 0px 6px;"><i class="fa fa-sign-out"></i> Cerrar Sesión</a></p>
+						<p style="margin: 0px"><i class="fa fa-cogs"></i> {{user.tipoUsuario}}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
 				<!-- El elemento mensaje error -->
 				<div data-ng-show="error" class="alert alert-danger fade in alert-dismissable text-center">
 				    <strong data-ng-bind="error"></strong>
@@ -26,7 +42,7 @@
 						</div>
 						<div class="form-group center">
 	                        <button type="submit" name="submit" class="btn btn-primary" required="required"><span class="fa fa-save"></span> Guardar Cambios </button>
-	                        <a class="btn btn-default" style="margin-top: 7px;"><span class="fa fa-times"></span> Cancelar </a>
+	                        <a href="#!/translate" class="btn btn-default" style="margin-top: 7px;"><span class="fa fa-times"></span> Cancelar </a>
 						</div>
 					</form>
 				</div><!--/.row-->

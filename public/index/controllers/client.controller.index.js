@@ -92,13 +92,43 @@ angular.module('modismoApp').controller('ModismoController', ['$scope', 'Authent
             });
 		};
 
-		$scope.translate = function(){
-			// findOne
-			console.log('traducir "' + $scope.modismo + '" al '+ $scope.idioma._id);
-            $scope.significado = DiccionarioResource.get({
-                idiomaId: $scope.idioma._id,
-                modismoNombre: $scope.modismo
+        $scope.addModismoTraducido= function(){
+            var modismo = new ModismoResource({
+                modismo: this.modismoModismo,
+                pais: $scope.pais._id
+            });
+            // Usar el método '$save' de medico para enviar una petición POST apropiada
+            modismo.$save(function(response) {
+                // Si un medico fue creado de modo correcto, redireccionar al usuario a la página del medico 
+                console.log('modismo agregado !!');
+                $scope.modismo = response;
+                $scope.addDiccionario();
+            }, function(errorResponse) {
+                // En otro caso, presentar al usuario el mensaje de error
+                $scope.error = errorResponse.data.message;
             });
         };
+
+		$scope.translate = function(){
+            if(!$scope.idioma){
+                $scope.error = 'Idioma no Especificado';
+                return;
+            }
+			// findOne
+            $scope.significado = DiccionarioResource.get({
+                idiomaId: $scope.idioma._id,
+                modismoNombre: this.modismoModismo
+            },function(response) {
+                console.log('traducir "' + this.modismoModismo + '" al '+ $scope.idioma._id);
+            }, function(errorResponse) {
+                // En otro caso, presentar al usuario el mensaje de error
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        $scope.closeWarning = function(){
+            $scope.warning = null;
+        };
+
 	}
 ]);

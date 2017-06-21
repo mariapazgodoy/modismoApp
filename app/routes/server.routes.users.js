@@ -24,14 +24,11 @@ module.exports = function(app){
 	app.route('/redirect')
 		.get( function(req, res) {
 			if (req.isAuthenticated()) {
-				if (req.user.tipoUsuario === "Administrativo") {
-					res.redirect('/#!/home_administrativo');
+				if (req.user.tipoUsuario === "Administrador") {
+					res.redirect('/#!/admin');
 				}
-				else if (req.user.tipoUsuario === "Administrador de Sistema") {
-					res.redirect('/#!/home_administrador');
-				}
-				else if (req.user.tipoUsuario === "Directivo") {
-					res.redirect('/#!/home_directivo');
+				else if (req.user.tipoUsuario === "Usuario") {
+					res.redirect('/#!/settings');
 				}else{
 					res.redirect('/signin');
 				}
@@ -42,15 +39,14 @@ module.exports = function(app){
 	app.route('/signout')
 		.get(users.signout);
 
-	// //configura la ruta base para users
-	//  app.route('/users')
-	//   .post(users.create)
-	//   .get(users.listAll);
+	 app.route('/api/users')
+	  .post(users.requiresLogin, users.create)
+	  .get(users.requiresLogin, users.listAll);
 
-	// app.route('/users/:userId')
-	//   .get(users.read)
-	//   .put(users.update)
-	//   .delete(users.delete);
+	app.route('/api/users/:userId')
+	  .get(users.requiresLogin, users.read)
+	  .put(users.requiresLogin, users.update)
+	  .delete(users.requiresLogin, users.delete);
+	app.param('userId', users.findUserByID);
 
-//	app.param('userId', users.findUserByID);
 };

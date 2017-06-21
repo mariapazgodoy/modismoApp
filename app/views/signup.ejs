@@ -1,48 +1,68 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>
-			<%= title %>
-		</title>
+	    <meta charset="utf-8">
+		<title> <%= title %> </title>
+	    <meta name="description" content="">
+	    <meta name="viewport" content="width=device-width">
+	    <!-- bower:css -->
+	    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+	    <!-- endbower -->
+	    <!-- build:css(.tmp) styles/main.css -->
+	    <link rel="stylesheet" href="/styles/main.css">
+	    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+	    <!-- endbuild -->
 	</head>
 	<body>
-		<!-- Mostrar Mensajes Flash -->
-		<% for(var i in messages){ %>
-			<div class="flash"><%= messages[i] %></div>
-		<% } %>
+	    <!-- HEADER -->
+	    <header id="header" style="background: #900b0b;border-bottom: 10px solid #6f0909;">
+            <div class="container">
+				<div class="navbar-left">
+					<h1 style="font-weight: 100;color: #fff;">ModismoApp</h1>
+				</div>
+			</div>
+	    </header>
 
-		<form action="/signup" method="post">
-			<div>
-				<label>Nombres</label>
-				<input type="text" name="nombre" />
+	    <section style="background: #fff;">
+			<div class="container"  id="containerPpal" style="padding: 80px 0px">
+			<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 contact-form" >	
+				<!-- Mostrar Mensajes Flash -->
+				<% for(var i in messages){ %>
+					<div class="flash alert alert-danger fade in alert-dismissable text-center"><%= messages[i] %></div>
+				<% } %>
+				<h1 class="center">Crear Cuenta</h1>
+				<form action="/signup" method="post">
+					<div class="form-group">
+						<label>Nombres</label>
+						<input type="text" class="form-control" name="nombre" />
+					</div>
+					<div class="form-group">
+						<label>Apellidos</label>
+						<input type="text" class="form-control" name="apellido" />
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="text" class="form-control" name="email" />
+					</div>
+					<div class="form-group">
+						<label>Nombre de Usuario</label>
+						<input type="text" class="form-control" name="username" />
+					</div>
+					<div class="form-group">
+						<label>Contraseña</label>
+						<input type="password" class="form-control" name="password" />
+					</div>
+					<input type="text" name="tipoUsuario" value="Usuario" hidden />
+					<div class="form-group center">
+						<input type="submit" class="form-control btn btn-primary" value="Crear Cuenta" />
+						</br>
+						</br>
+						<p class="center"> O si ya has creado una cuenta </p>
+						<a class="btn btn-default" href="/signin"><i class="fa fa-lock"></i> Identificarse</a>
+					</div>
+				</form>
 			</div>
-			<div>
-				<label>Apellidos</label>
-				<input type="text" name="apellido" />
 			</div>
-			<div>
-				<label>Email</label>
-				<input type="text" name="email" />
-			</div>
-			<div>
-				<label>Nombre de Usuario</label>
-				<input type="text" name="username" />
-			</div>
-			<div>
-				<label>Contraseña</label>
-				<input type="password" name="password" />
-			</div>
-			<div>
-				<label>Contraseña</label>
-				<select name="tipoUsuario">
-					<option value="Administrativo" > Administrativo </option>
-					<option value="Directivo" > Directivo </option>
-					<option value="Administrador de Sistema" > Administrador de Sistema </option>
-				</select>
-			</div>
-			<div>
-				<input type="submit" value="Crear Cuenta" />
-			</div>
-		</form>
+	    </section>
 	</body>
 </html>

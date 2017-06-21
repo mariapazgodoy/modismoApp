@@ -116,6 +116,17 @@ exports.diccionarioByID = function(req, res, next, id){
 
 
 exports.getTraduccionByIdioma = function(req, res, next){
+	if (!req.idioma) {
+		return res.status(400).send({
+			message: 'Idioma no especificado'
+		});
+	}
+	if (!req.modismo){
+		return res.status(400).send({
+			message: 'No se ha encontrado una traducción para "'+req.modismoNombre+'" al '+req.idioma.nombre
+		});
+	}
+
 	console.log('traducir '+req.modismo.modismo+' al '+req.idioma.nombre);
 	Diccionario.findOne({
 		idioma:  req.idioma._id,
